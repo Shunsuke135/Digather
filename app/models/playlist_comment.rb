@@ -1,0 +1,2 @@
+class PlaylistComment < ApplicationRecord
+end
