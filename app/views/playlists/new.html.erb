@@ -1,1 +1,12 @@
-<h1>プレイリスト新規投稿画面</h1>
+<h1>New playlist</h1>
+
+<%= form_with model: @playlist, local:true do |f| %>
+
+<p>Artist</p>
+<%= f.text_field :artist %>
+<p>Tune</p>
+<%= f.text_field :tune %>
+<p>Information</p>
+<%= f.text_area :information %><br>
+<%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
+<% end %>

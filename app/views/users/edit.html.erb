@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="row">
+  <div class="mx-auto">
+    <h1>User info</h1>
+     <%= form_with model: @user, local:true do |f| %>
+      <% if @user.errors.any? %>
+       <h3><%= @user.errors.count %>prohibited this obj from being saved:</h3>
+        <ul>
+         <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+         <% end %>
+        </ul>
+      <% end %>
+
+      <p>Name</p>
+      <%= f.text_field :name %>
+      <p>Image</p>
+      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+      <p>Introduction</p>
+      <%= f.text_area :introduction %><br>
+      <%= f.submit "Update User", class:"btn btn-secondary w-178px" %><br>
+    <% end %>
+  </div>
+ </div>
+</div>
