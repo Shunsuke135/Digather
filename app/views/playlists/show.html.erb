@@ -1,1 +1,51 @@
-<h1>プレイリスト詳細画面</h1>
+<p id="notice">
+ <%=  notice %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+   <h1>Candy info</h1>
+   <%= render 'users/profile', user: @playlist.user %>
+  </div>
+
+  <div class="col-md-8 offset-md-1">
+   <h1>Playlist deets</h1>
+    <table class="table">
+     <th>
+      <td>
+        <%= link_to (@playlist.user) do %>
+        <%= attachment_image_tag @playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %><br>
+        <%= @playlist.user.name %>
+        <% end %>
+      </td>
+        <td><%= link_to @playlist.artist, @playlist %></td>
+        <td><%= @playlist.tune %></td>
+        <td><%= @playlist.information %></td>
+
+        <td>
+         <div id="playlists_<%= @playlist.id %>">
+          <%= render 'favorites/favorite', playlist: @playlist %>
+         </div>
+        </td>
+
+        <td>comments:<%= @playlist.playlist_comments.count %></td>
+       <td>
+        <% if @playlist.user == current_user %>
+            <td><%= link_to "Edit",edit_playlist_path(@playlist), class:"btn btn-success" %></td>
+            <td><%= link_to "Destroy",playlist_path(@playlist), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
+        <% end %>
+       </td>
+    </th>
+   </table>
+
+   <h3>comments</h3>
+    <div class="table" id="comments_box">
+      <%= render 'playlist_comments/comments', playlist_comments: @playlist_comments %>
+    </div>
+      <%= form_with model: [@playlist, @playlist_comment], remote: true do |f| %>
+       <%= f.text_area :comment, class: "form-control col-xs-10" %><br />
+       <%= f.submit "Send" %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+</div>

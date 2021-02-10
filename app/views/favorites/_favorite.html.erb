@@ -1,0 +1,9 @@
+<% if playlist.favorited_by?(current_user) %>
+  <%= link_to playlist_favorites_path(playlist), method: :delete, remote: true do %>
+    <span>❤︎︎</span><%= playlist.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to playlist_favorites_path(playlist), method: :post, remote: true do %>
+    <span>♡</span><%= playlist.favorites.count %>
+  <% end %>
+<% end %>

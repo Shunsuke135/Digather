@@ -1,1 +1,47 @@
-<h1>プレイリスト一覧</h1>
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+   <h1>Candy info</h1>
+   <%= render 'users/profile', user: current_user %>
+   <h2><%= link_to "New playlist", new_playlist_path %></h2>
+  </div>
+
+   <div class="col-md-8 offset-md-1">
+    <h1>Playlists</h1>
+     <table class="table">
+      <thead>
+       <th></th>
+       <th>Artist</th>
+       <th>Tune</th>
+       <th>Information</th>
+      </thead>
+      <tbody>
+    <% @playlists.each do |playlist| %>
+     <tr>
+       <td>
+        <%= link_to user_path(playlist.id) do %>
+        <%= attachment_image_tag playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %>
+        <% end %>
+       <br></td>
+       <td><%= playlist.artist %></td>
+       <td><%= playlist.tune %></td>
+       <td><%= link_to "Deets", playlist_path(playlist.id) %></td>
+
+       <td>
+        <div id="playlists_<%= playlist.id %>">
+         <%= render 'favorites/favorite', playlist: playlist %>
+        </div>
+       </td>
+
+       <td>comments: <%= playlist.playlist_comments.count %></td>
+
+
+
+     </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+ </div>
+</div>

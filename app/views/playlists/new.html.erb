@@ -1,12 +1,28 @@
-<h1>New playlist</h1>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <% if @playlist.errors.any? %>
+        <h3><%= @playlist.errors.count %>prohibited this obj from being saved:</h3>
+          <ul>
+            <% @playlist.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
 
-<%= form_with model: @playlist, local:true do |f| %>
+      <h1>New playlist</h1>
 
-<p>Artist</p>
-<%= f.text_field :artist %>
-<p>Tune</p>
-<%= f.text_field :tune %>
-<p>Information</p>
-<%= f.text_area :information %><br>
-<%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
-<% end %>
+      <%= form_with model: @playlist, local:true do |f| %>
+
+        <p>Artist</p>
+          <%= f.text_field :artist %>
+        <p>Tune</p>
+          <%= f.text_field :tune %>
+        <p>Information</p>
+          <%= f.text_area :information %><br>
+          <%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
+      <% end %>
+
+    </div>
+  </div>
+</div>

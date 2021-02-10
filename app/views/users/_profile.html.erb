@@ -1,0 +1,32 @@
+<table class="table">
+    <tr><%= attachment_image_tag(user, :profile_image, :fill, 250, 250, fallback: "no_image.jpg") %></tr>
+
+    <tr>
+        <th>user name</th><br>
+        <th><%= user.name %></th>
+    </tr><br>
+
+    <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+    </tr>
+
+    <tr>
+        <th>follows</th>
+        <th><%= link_to user.followings.count, user_followings_path(user) %></th>
+    </tr>
+
+    <tr>
+        <th>followers</th>
+        <th><%= link_to user.followers.count, user_followers_path(user) %></th>
+    </tr>
+
+</table>
+
+<div class="row">
+    <%= render 'relationships/follow', user: user %>
+</div>
+<th><%= link_to edit_user_path(user), class: 'btn btn-default w-178px' do %>
+     <i class="fas fa-user-cog"></i>
+    <% end %>
+</th><br>
