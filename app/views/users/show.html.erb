@@ -13,9 +13,10 @@
     <table class="table">
      <thead>
       <th></th>
-      <th>Artist</th>
-      <th>Tune</th>
+      <th>Playlist Name</th>
       <th>Information</th>
+      <th></th>
+      <th></th>
     </thead>
     <tbody>
      <% @playlists.each do |playlist| %>
@@ -25,8 +26,8 @@
         <%= attachment_image_tag playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %>
         <% end %>
        <br></td>
-       <td><%= playlist.artist %></td>
-       <td><%= playlist.tune %></td>
+       <td><%= playlist.name %></td>
+       <td><%= playlist.information %></td>
        <td><%= link_to "Deets", playlist_path(playlist.id) %></td>
 
        <td>comments: <%= playlist.playlist_comments.count %></td>

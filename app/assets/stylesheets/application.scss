@@ -14,3 +14,12 @@
  *= require_self
  */
  @import "bootstrap";
+.top-body{
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center center;
+ background-image: url("record.jpg");
+ width:100%;                                            /* 横幅のサイズを指定    */
+ height:1000px;                                          /* 縦幅のサイズを指定    */
+
+}

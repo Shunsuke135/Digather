@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @playlists = Playlist.find_by(params[:genre_id])
   end
 
   def create
@@ -16,18 +17,20 @@ class PlaylistsController < ApplicationController
   end
 
   def index
-    @playlists = Playlist.all
+    @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').distinct.reorder(favorites_count: :desc)
   end
 
   def show
     @playlist = Playlist.find(params[:id])
-    # @booknew = Book.new
+    @playlists = Playlist.all
     @playlist_comment = PlaylistComment.new
     @playlist_comments = @playlist.playlist_comments
+    @songs = @playlist.songs
   end
 
   def edit
     @playlist = Playlist.find(params[:id])
+    # @playlist.songs.build
   end
 
   def update
@@ -50,7 +53,7 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:artist, :tune, :information)
+    params.require(:playlist).permit(:name, :information, :genre_id)
   end
 
   def correct_playlist

@@ -2,3 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.playlist-body{
+  width:100%;                                            /* 横幅のサイズを指定    */
+  height:1000px;
+  background-color: #b0c4de;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.songs-text{
+  width: 170px;
+  line-height: 3;
+  letter-spacing: 5px;
+}
+
+.song-posts{
+  height: 35px;
+}

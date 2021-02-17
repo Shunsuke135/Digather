@@ -1,0 +1,6 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :q, placeholder: "Find User and Playlist" %>
+  <%= f.select :genre, [["user", "user"], ["playlist", "playlist"]] %>
+  <%#= f.select :direction, [["keyword","keyword"]] %>
+  <%= button_tag '<i class="fa fa-search"></i>'.html_safe, :type => "submit", class: "btn-sm btn-success" %>
+<% end %>

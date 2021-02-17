@@ -3,7 +3,7 @@
     <tr>
       <td>
         <%= link_to (playlist_comment.user) do %>
-        <%= attachment_image_tag(playlist_comment.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+        <%= attachment_image_tag(playlist_comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg") %>
         <%= playlist_comment.user.name %>
         <% end %>
       </td>

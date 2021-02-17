@@ -1,4 +1,4 @@
-
+<div class="playlist-body">
 <div class="container">
  <div class="row">
   <div class="col-md-3">
@@ -8,25 +8,32 @@
   </div>
 
    <div class="col-md-8 offset-md-1">
+    
+      <% if user_signed_in? %>
+            <%= render 'layouts/searchform' %>
+      <% end %>
+
     <h1>Playlists</h1>
      <table class="table">
       <thead>
        <th></th>
-       <th>Artist</th>
-       <th>Tune</th>
+       <th>Playlist Name</th>
        <th>Information</th>
+       <th>Reaction</th>
+       <th></th>
       </thead>
       <tbody>
-    <% @playlists.each do |playlist| %>
+    <% @playlist_ranking.each do |playlist| %>
      <tr>
        <td>
         <%= link_to user_path(playlist.id) do %>
         <%= attachment_image_tag playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %>
         <% end %>
        <br></td>
-       <td><%= playlist.artist %></td>
-       <td><%= playlist.tune %></td>
-       <td><%= link_to "Deets", playlist_path(playlist.id) %></td>
+       <td>
+        <%= link_to playlist.name, playlist_path(playlist.id) %>
+        </td>
+       <td><%= playlist.information %></td>
 
        <td>
         <div id="playlists_<%= playlist.id %>">
@@ -40,8 +47,10 @@
 
      </tr>
     <% end %>
+    
     </tbody>
     </table>
+  </div>
   </div>
  </div>
 </div>

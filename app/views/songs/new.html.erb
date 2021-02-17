@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+<!--      <%# if @song.errors.any? %>-->
+<!--        <h3><%#= @song.errors.count %>prohibited this obj from being saved:</h3>-->
+<!--          <ul>-->
+<!--            <%# @song.errors.full_messages.each do |message| %>-->
+<!--              <li><%#= message %></li>-->
+<!--            <%# end %>-->
+<!--          </ul>-->
+<!--      <%# end %>-->
+<%=@playlist.name%>
+
+      <h1>Add tune</h1>
+
+      <%= form_with model: [@playlist, @song], local:true do |f| %>
+
+        <p>Artist</p>
+          <%= f.text_field :artist %><br>
+        <p>Tune</p>
+          <%= f.text_field :tune %><br>
+        <p>Deets</p>
+          <%= f.text_area :detail %><br>
+
+          <%= f.submit "New add", class:"btn btn-success w-178px" %><br>
+      <% end %>
+
+    </div>
+  </div>
+</div>

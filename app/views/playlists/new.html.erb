@@ -13,14 +13,16 @@
       <h1>New playlist</h1>
 
       <%= form_with model: @playlist, local:true do |f| %>
-
-        <p>Artist</p>
-          <%= f.text_field :artist %>
-        <p>Tune</p>
-          <%= f.text_field :tune %>
+        <p>Playlist Name</p>
+          <%= f.text_field :name %>
         <p>Information</p>
           <%= f.text_area :information %><br>
-          <%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
+        <p>Genre</p>
+          <%= f.collection_radio_buttons :genre_id, Genre.all, :id, :name %><br>
+
+
+
+        <%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
       <% end %>
 
     </div>

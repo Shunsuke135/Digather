@@ -1,3 +1,29 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-font{
+    margin-top: 70px;
+    font-size: 100px;
+    color: pink;
+}
+
+.font-color{
+    margin-top: 80px;
+    font-size: 36px;
+    color: pink;
+}
+
+.move-login{
+    font-size: 50px;
+}
+
+.move-signup{
+    // font-size: 20px;
+}

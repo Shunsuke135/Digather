@@ -11,9 +11,9 @@
 
   <body>
     <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000077;"　>
     <div class="container">
-      <a class="navbar-brand" href="/"><span>Digather</span></a>
+      <a class="navbar-brand" href="/"><%= image_tag('slacky1.jpg',:size =>'60x60') %><span>Digather</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +22,7 @@
         <% if user_signed_in? %>
           <li><%= link_to ' Home',user_path(current_user),class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to ' Users',users_path,class: 'fas fa-users nav-link text-light' %></li>
-          <li><%= link_to ' Playlists',playlists_path,class: 'fas fa-book-open nav-link text-light'%></li>
+          <li><%= link_to ' Playlists',playlists_path,class: 'fas fa-headphones nav-link text-light'%></li>
           <li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>
           <li><%= link_to ' Home',root_path,class: 'fas fa-home nav-link text-light' %></li>
@@ -35,8 +35,7 @@
     </div>
   </nav>
 </header>
-
-<p>
+<div class="top-body">
    <% if user_signed_in? %>
         <div class="container">
           <div class="row">
@@ -46,7 +45,6 @@
           </div>
         </div>
       <% end %>
-  </p>
 
     <%= yield %>
 
@@ -54,10 +52,11 @@
       <div class="container">
         <div class="row">
           <div class="mx-auto">
-            <p>No Music No Life Digather.inc</p>
+            <p class="font-color">No Music No Life Digather.inc</p>
           </div>
         </div>
       </div>
     </footer>
   </body>
+</div>
 </html>
