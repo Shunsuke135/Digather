@@ -4,8 +4,8 @@
 
 .playlist-body{
   width:100%;                                            /* 横幅のサイズを指定    */
-  height:1000px;
-  background-color: #b0c4de;
+  min-height:100vh;
+  background-color: #e0ffff;
 }
 
 * {
@@ -16,10 +16,42 @@
 
 .songs-text{
   width: 170px;
-  line-height: 3;
-  letter-spacing: 5px;
+  text-align: center;
+  font-family: cursive;
 }
 
 .song-posts{
   height: 35px;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.main-playlist-font{
+  margin-top: 65px;
+  margin-bottom: 50px;
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.main-playlist-font{
+  margin-top: 20px;
+  margin-bottom: 25px;
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.main-sub-playlist-font{
+  text-align: center;
+  font-family: cursive;
+  font-size: 25px;
+}
+
+.show-back{
+  font-size: 25px;
+  text-align: center;
 }

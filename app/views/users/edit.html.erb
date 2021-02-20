@@ -1,7 +1,8 @@
+<div class="playlist-body">
 <div class="container">
  <div class="row">
   <div class="mx-auto">
-    <h1>Candy info</h1>
+    <h1 class="user-info-edit">Candy info</h1>
      <%= form_with model: @user, local:true do |f| %>
       <% if @user.errors.any? %>
        <h3><%= @user.errors.count %>prohibited this obj from being saved:</h3>
@@ -12,14 +13,16 @@
         </ul>
       <% end %>
 
-      <p>Name</p>
-      <%= f.text_field :name %>
-      <p>Image</p>
-      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-      <p>Introduction</p>
-      <%= f.text_area :introduction %><br>
-      <%= f.submit "Update User", class:"btn btn-secondary w-178px" %><br>
+      <p class="user-edit-field">Name</p>
+      <p class="user-edit-field"><%= f.text_field :name %></p>
+      <p class="user-edit-field">Image</p>
+      <p class="user-edit-field"><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
+      <p class="user-edit-field">Introduction</p>
+      <p class="user-edit-field"><%= f.text_area :introduction, size: "30x5" %></p><br>
+      <p class="user-edit-btn"><%= f.submit "Update User", class:"btn btn-secondary btn-lg" %></p><br>
     <% end %>
   </div>
  </div>
+ <%= render "layouts/fotter" %>
+</div>
 </div>

@@ -8,22 +8,26 @@
   box-sizing: border-box;
 }
 
+.top{
+    font-size: 60px;
+}
+
 .about-font{
-    margin-top: 70px;
+    text-align: center;
+    margin-top: 80px;
     font-size: 100px;
-    color: pink;
+    color: #ff00ff;
+    font-family: cursive;
 }
 
 .font-color{
+    text-align: center;
     margin-top: 80px;
-    font-size: 36px;
-    color: pink;
+    font-size: 48px;
+    color: #ff00ff;
+    font-family: cursive;
 }
 
-.move-login{
-    font-size: 50px;
-}
-
-.move-signup{
-    // font-size: 20px;
+.log-in-btn{
+    height: 35px;
 }

@@ -1,3 +1,84 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-body.sign{
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center center;
+ background-image: url("record6.jpg");
+ width:100%;
+ min-height:100vh;
+
+}
+
+.profile{
+  text-align: center;
+  font-size: 35px;
+  font-family: Impact;
+}
+
+.profile-detail{
+  text-align: center;
+  font-size: 20px;
+  font-family: Verdana;
+}
+
+.field{
+  font-family: Impact;
+  color: #c71585;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.field-h{
+  font-family: Impact;
+  color: #c71585;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.actions{
+  font-family: Impact;
+  color: #c71585;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.move-login{
+  font-family: Impact;
+}
+
+.move-signup{
+  font-family: Impact;
+}
+
+.user-info-edit{
+  text-align: center;
+  margin-top: 80px;
+  font-size: 90px;
+  font-family: cursive;
+}
+
+.user-edit-field{
+  font-family: cursive;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.user-edit-btn{
+  text-align: center;
+  font-family: cursive;
+}
+
+.main-user-show-font{
+  margin-top: 70px;
+  margin-bottom: 25px;
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+}

@@ -1,26 +1,26 @@
+<div class="playlist-body">
 <div class="container">
  <div class="row">
   <div class="col-md-3">
-   <h1>Candy info</h1>
+   <h1 class="info-font">Candy info</h1>
    <%= render 'users/profile', user: current_user %>
-   <h2><%= link_to "New playlist", new_playlist_path %></h2>
+   <h2 class="link-new"><%= link_to "New playlist", new_playlist_path %></h2>
   </div>
 
   <div class="col-md-8 offset-md-1">
 
-   <p>
+  <div class="search-position">
       <% if user_signed_in? %>
             <%= render 'layouts/searchform' %>
       <% end %>
-    </p>
-
-   <h1>Users</h1>
+  </div>
+   <h1 class="main-font">Users</h1>
     <table class="table">
       <thead>
        <th></th>
-       <th>name</th>
+       <th class="main-sub-font">Name</th>
        <th></th>
-       <th>relationships</th>
+       <th class="main-sub-font">Relationships</th>
        <th></th>
        <th></th>
       </thead>
@@ -32,11 +32,13 @@
        <td><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
        <td><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
        <td><%= render 'relationships/follow', user: user %></td>
-       <td><%= link_to "Show", user_path(user.id) %></td>
+       <td class="link-show"><%= link_to "Show", user_path(user.id) %></td>
      </tr>
     <% end %>
     </tbody>
    </table>
   </div>
  </div>
+ <%= render "layouts/fotter" %>
+</div>
 </div>

@@ -1,3 +1,4 @@
+<div class="playlist-body">
 <div class="container">
   <div class="row">
     <div class="mx-auto">
@@ -10,21 +11,23 @@
           </ul>
       <% end %>
 
-      <h1>New playlist</h1>
+      <h1 class="user-info-edit">New playlist</h1>
 
       <%= form_with model: @playlist, local:true do |f| %>
-        <p>Playlist Name</p>
-          <%= f.text_field :name %>
-        <p>Information</p>
-          <%= f.text_area :information %><br>
-        <p>Genre</p>
-          <%= f.collection_radio_buttons :genre_id, Genre.all, :id, :name %><br>
+        <p class="user-edit-field">Playlist Name</p>
+        <p class="user-edit-field"><%= f.text_field :name %></p>
+        <p class="user-edit-field">Information</p>
+        <p class="user-edit-field"><%= f.text_area :information %></p><br>
+        <p class="user-edit-field">Genre</p>
+        <p class="user-edit-field"><%= f.collection_radio_buttons :genre_id, Genre.all, :id, :name %></p><br>
 
 
 
-        <%= f.submit "Create Playlist", class:"btn btn-success w-178px" %><br>
+        <p class="user-edit-btn"><%= f.submit "Create Playlist", class:"btn btn-success btn-lg" %></p><br>
       <% end %>
 
     </div>
   </div>
+  <%= render "layouts/fotter" %>
+</div>
 </div>

@@ -1,9 +1,10 @@
+<div class="playlist-body">
 <div class="container">
  <div class="row">
   <div class="col-md-3">
-   <h1>Candy info</h1>
+   <h1 class="info-font">Candy info</h1>
    <%= render 'users/profile', user: current_user %>
-   <h2><%= link_to "New playlist", new_playlist_path %></h2>
+   <h2 class="link-new"><%= link_to "New playlist", new_playlist_path %></h2>
   </div>
 
   <div class="col-md-8 offset-md-1">
@@ -14,13 +15,13 @@
             <%= render 'layouts/searchform' %>
       <% end %>
     </p>
-   <h1>Users</h1>
+   <h1 class="main-font">Users</h1>
     <table class="table">
       <thead>
        <th></th>
-       <th>name</th>
+       <th class="main-sub-font">Name</th>
        <th></th>
-       <th>relationships</th>
+       <th class="main-sub-font">Relationships</th>
        <th></th>
        <th></th>
       </thead>
@@ -29,10 +30,10 @@
      <tr>
        <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %></td>
        <td><%= user.name %>
-       <td><p>フォロー数 : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
-       <td><p>フォロワー数 : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
+       <td><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
+       <td><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
        <td><%= render 'relationships/follow', user: user %></td>
-       <td><%= link_to "Show", user_path(user.id) %></td>
+       <td class="link-show"><%= link_to "Show", user_path(user.id) %></td>
      </tr>
     <% end %>
 
@@ -42,12 +43,14 @@
             <%= render 'layouts/searchform' %>
       <% end %>
     </p>
-    <h1>Playlist</h1>
+    <h1 class="main-playlist-font">Playlist</h1>
      <table class="table">
       <thead>
        <th></th>
-       <th>Title</th>
-       <th>Opinion</th>
+       <th class="main-sub-playlist-font">Playlist Name</th>
+       <th class="main-sub-playlist-font">Information</th>
+       <th class="main-sub-playlist-font">Reaction</th>
+       <th></th>
       </thead>
       <tbody>
     <% @playlists.each do |playlist| %>
@@ -62,7 +65,7 @@
 
        <td><%= render 'favorites/favorite', playlist: playlist %></td>
 
-       <td>コメント数: <%= playlist.playlist_comments.count %></td>
+       <td><i class="far fa-comment"></i>: <%= playlist.playlist_comments.count %></td>
      </tr>
     <% end %>
    <% end %>
@@ -70,4 +73,6 @@
    </table>
   </div>
  </div>
+ <%= render "layouts/fotter" %>
+</div>
 </div>

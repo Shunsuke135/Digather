@@ -5,18 +5,16 @@
   <div class="row">
     <div class='mx-auto'>
      <div class="font-color">
-      <p class="top"><%= image_tag('slacky1.jpg',:size =>'185x185') %><i class="fas fa-compact-disc"></i> Connect on <span>Digather !!</span></p>
-     <!--<h1>Connect on <i class="fas fa-compact-disc"></i><strong>Digather </strong>!!</h1>-->
-     <!--<p>In <i class="fas fa-compact-disc"></i><strong>Digather,</strong></p>-->
-     <!--<p>Discover, information, and share a constantly expanding mix of music from</p>-->
-     <!--<p>emerging and major HipHop artists around the world.!</p>-->
+      <p class="top"><%= image_tag('slacky1.jpg',:size =>'250x250') %></p>
+      <p class="top"><i class="fas fa-compact-disc"></i>Dig + <i class="fas fa-compress-arrows-alt"></i>gather = Digather</p>
      </div>
     <div class = "move-login">
-     <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+     <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in log-in-btn" %>
     </div><br>
     <div class = "move-signup">
-     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up log-in-btn" %>
     </div>
   </div>
  </div>
+ <%= render "layouts/fotter" %>
 </div>

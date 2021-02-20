@@ -1,20 +1,21 @@
-<p id="notice">
- <%=  notice %>
+<div class="playlist-body">
+<!--<p id="notice">-->
+<!-- <%#=  notice %>-->
 <div class="container">
  <div class="row">
   <div class="col-md-3">
-   <h1>Candy info</h1>
+   <h1 class="info-font">Candy info</h1>
    <%= render 'users/profile', user: @user %>
-   <h2><%= link_to "New playlist", new_playlist_path %></h2>
+   <h2 class="link-new"><%= link_to "New playlist", new_playlist_path %></h2>
   </div>
 
   <div class="col-md-8 offset-md-1">
-   <h1>Playlists</h1>
+   <h1 class="main-user-show-font">Playlists</h1>
     <table class="table">
      <thead>
       <th></th>
-      <th>Playlist Name</th>
-      <th>Information</th>
+      <th class="main-sub-font">Playlist Name</th>
+      <th class="main-sub-font">Information</th>
       <th></th>
       <th></th>
     </thead>
@@ -28,9 +29,9 @@
        <br></td>
        <td><%= playlist.name %></td>
        <td><%= playlist.information %></td>
-       <td><%= link_to "Deets", playlist_path(playlist.id) %></td>
+       <td class="link-show"><%= link_to "Deets", playlist_path(playlist.id) %></td>
 
-       <td>comments: <%= playlist.playlist_comments.count %></td>
+       <td><i class="far fa-comment"></i>: <%= playlist.playlist_comments.count %></td>
 
      </tr>
     <% end %>
@@ -38,4 +39,6 @@
    </table>
   </div>
  </div>
+ <%= render "layouts/fotter" %>
+</div>
 </div>

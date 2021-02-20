@@ -14,12 +14,62 @@
  *= require_self
  */
  @import "bootstrap";
+
 .top-body{
  background-repeat: no-repeat;
  background-size: cover;
  background-position: center center;
  background-image: url("record.jpg");
- width:100%;                                            /* 横幅のサイズを指定    */
- height:1000px;                                          /* 縦幅のサイズを指定    */
+ width:100%;
+ height:1000px;
 
+}
+
+.test {
+  width: 100px;
+  height: 38px;
+}
+
+.header-font{
+  font-size: 40px;
+  font-family: cursive;
+  color: #ffd700;
+}
+
+.info-font{
+  margin-top: 65px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  font-family: cursive;
+}
+
+.main-font{
+  margin-top: 20px;
+  margin-bottom: 25px;
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.main-sub-font{
+  text-align: center;
+  font-family: cursive;
+  font-size: 30px;
+}
+
+.link-new{
+  margin-top: 30px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.link-show{
+  font-family: cursive;
+  font-size: 18px;
+}
+
+.playlist-edit-footer{
+  margin-top: 150px;
 }

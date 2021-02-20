@@ -1,7 +1,8 @@
+<div class="playlist-body">
 <div class="container">
  <div class="row">
   <div class="mx-auto">
-   <h1>Editing playlist</h1>
+   <h1 class="user-info-edit">Editing playlist</h1>
     <%= form_with model:@playlist, local:true do |f| %>
     <% if @playlist.errors.any? %>
        <h3><%= @playlist.errors.count %>errors prohibited this obj from being saved:</h3>
@@ -12,16 +13,14 @@
         </ul>
      <% end %>
 
-    <p>Playlist Name</p>
-     <%= f.text_field :name %>
-    <p>Information</p>
-     <%= f.text_area :information %><br>
-
-     <%= f.submit 'Update Playlist', class:"btn btn-success w-178px" %><br>
-    <td><%= link_to "Show", playlist_path %></td>
-    <td>|</td>
-    <td><%= link_to "Back", playlists_path %></td>
+    <p class="user-edit-field">Playlist Name</p>
+    <p class="user-edit-field"><%= f.text_field :name %></p>
+    <p class="user-edit-field">Information</p>
+    <p class="user-edit-field"><%= f.text_area :information %></p><br>
+    <p class="user-edit-btn"><%= f.submit 'Update Playlist', class:"btn btn-success w-178px" %></p><br>
     <% end %>
   </div>
  </div>
+ <div class="playlist-edit-footer"><%= render "layouts/fotter" %></div>
+</div>
 </div>

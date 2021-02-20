@@ -1,4 +1,8 @@
-<h2>Sign up</h2>
+<div class="sign">
+<div class="container">
+  <div class="row">
+    <div class='mx-auto'>
+<h1 class="field-h">Sign up</h1>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -27,8 +31,14 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-info btn-sm btn-block mb-3 sign_in log-in-btn"  %>
   </div>
 <% end %>
-
+<div class="actions">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+<%= render "layouts/fotter" %>
+</div>
+</div>

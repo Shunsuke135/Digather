@@ -1,3 +1,4 @@
+<div class="playlist-body">
 <div class="container">
   <div class="row">
     <div class="mx-auto">
@@ -9,22 +10,23 @@
 <!--            <%# end %>-->
 <!--          </ul>-->
 <!--      <%# end %>-->
-<%=@playlist.name%>
 
-      <h1>Add tune</h1>
+      <h1 class="user-info-edit">Add tune</h1>
 
       <%= form_with model: [@playlist, @song], local:true do |f| %>
 
-        <p>Artist</p>
-          <%= f.text_field :artist %><br>
-        <p>Tune</p>
-          <%= f.text_field :tune %><br>
-        <p>Deets</p>
-          <%= f.text_area :detail %><br>
+        <p class="user-edit-field">Artist</p>
+        <p class="user-edit-field"><%= f.text_field :artist %></p><br>
+        <p class="user-edit-field">Tune</p>
+        <p class="user-edit-field"><%= f.text_field :tune %></p><br>
+        <p class="user-edit-field">Deets</p>
+        <p class="user-edit-field"><%= f.text_area :detail, size: "30x5" %></p><br>
 
-          <%= f.submit "New add", class:"btn btn-success w-178px" %><br>
+        <p class="user-edit-btn"><%= f.submit "New add", class:"btn btn-success btn-lg" %></p><br>
       <% end %>
 
     </div>
   </div>
+  <%= render "layouts/fotter" %>
+</div>
 </div>
