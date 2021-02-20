@@ -1,36 +1,36 @@
 <div class="sign">
-<div class="container">
-  <div class="row">
-    <div class='mx-auto'>
-<h1 class="field-h">Log in</h1>
+  <div class="container">
+    <div class="row">
+      <div class='mx-auto'>
+        <h1 class="field-h">Log in</h1>
 
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-success btn-sm btn-block sign_up log-in-btn" %>
-  </div><br>
-<% end %>
-<div class="actions">
-<%= render "devise/shared/links" %>
+          <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
-        </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "btn btn-success btn-sm btn-block sign_up log-in-btn" %>
+          </div><br>
+          <% end %>
+          <div class="actions">
+            <%= render "devise/shared/links" %>
+          </div>
       </div>
+    </div>
     <%= render "layouts/fotter" %>
   </div>
 </div>

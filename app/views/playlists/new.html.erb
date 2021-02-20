@@ -2,14 +2,16 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <% if @playlist.errors.any? %>
-        <h3><%= @playlist.errors.count %>prohibited this obj from being saved:</h3>
-          <ul>
-            <% @playlist.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-      <% end %>
+      <div class="error">
+        <% if @playlist.errors.any? %>
+          <h3><%= @playlist.errors.count %>prohibited this obj from being saved:</h3>
+            <ul>
+              <% @playlist.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
 
       <h1 class="user-info-edit">New playlist</h1>
 

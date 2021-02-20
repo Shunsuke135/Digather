@@ -1,21 +1,22 @@
 <div class="playlist-body">
-<!--<p id="notice">-->
-<!-- <%#=  notice %>-->
-<div class="container">
- <div class="row">
-  <div class="col-md-3">
-   <h1 class="info-font">Candy info</h1>
-   <%= render 'users/profile', user: @playlist.user %>
-   <h2 class="link-new"><%= link_to "New playlist", new_playlist_path %></h2>
-  </div>
+ <div id="notice">
+  <%=  notice %>
+ </div>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-3">
+     <h1 class="info-font">Candy info</h1>
+      <%= render 'users/profile', user: @playlist.user %>
+     <h2 class="link-new"><%= link_to "New playlist", new_playlist_path %></h2>
+    </div>
 
-  <div class="col-md-8 offset-md-1">
-   <h1 class="main-user-show-font">Playlist deets</h1>
-    <table class="table">
-     <th>
-        <td>
+    <div class="col-md-8 offset-md-1">
+     <h1 class="main-user-show-font">Playlist deets</h1>
+      <table class="table">
+       <th>
+        <td class="image-position">
          <%= link_to (@playlist.user) do %>
-         <%= attachment_image_tag @playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %><br>
+         <%= attachment_image_tag @playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %><br>
          <%= @playlist.user.name %>
          <% end %>
         </td>
@@ -30,44 +31,44 @@
 
         <td><i class="far fa-comment"></i>:<%= @playlist.playlist_comments.count %></td>
 
-       <td>
-        <% if @playlist.user == current_user %>
-            <td><%= link_to "Edit",edit_playlist_path(@playlist), class:"btn-sm btn-success" %></td>
-            <td><%= link_to "Destroy",playlist_path(@playlist), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
-        <% end %>
-       </td>
-      </th>
-   </table>
-   <table>
-     <thead>
-      <tr>
-       <th class="songs-text">Artist</th>
-       <th class="songs-text">Tune</th>
-       <th class="songs-text">Deets</th>
-       <th class="songs-text"><%= link_to "New Add", new_playlist_song_path(@playlist.id) %></th>
-      </tr>
-      </thead>
+        <td>
+         <% if @playlist.user == current_user %>
+          <td><%= link_to "Edit",edit_playlist_path(@playlist), class:"btn-sm btn-success" %></td>
+          <td><%= link_to "Destroy",playlist_path(@playlist), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
+         <% end %>
+        </td>
+        </th>
+      </table>
+      <table>
+       <thead>
+        <tr>
+         <th class="songs-text">Artist</th>
+         <th class="songs-text">Tune</th>
+         <th class="songs-text">Deets</th>
+         <th class="songs-text"><%= link_to "New Add", new_playlist_song_path(@playlist.id) %></th>
+        </tr>
+       </thead>
        <tbody>
         <% @songs.each do |song| %>
-        <tr>
-            <td class="song-posts"><%= song.artist %></td>
-            <td><%= song.tune %></td>
-            <td><%= song.detail %></td>
-            <td></td>
-            <td><%= link_to "Destroy", playlist_song_path(song.playlist_id, song.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
-            <td></td>
-        </tr>
+         <tr>
+          <td class="song-posts"><%= song.artist %></td>
+          <td><%= song.tune %></td>
+          <td><%= song.detail %></td>
+          <td></td>
+          <td><%= link_to "Destroy", playlist_song_path(song.playlist_id, song.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
+          <td></td>
+         </tr>
         <% end %>
-     </tbody>
-   </table>
-   <h4 class="comment">comments</h4>
-    <div class="table" id="comments_box">
-      <%= render 'playlist_comments/comments', playlist_comments: @playlist_comments %>
-    </div>
-      <%= form_with model: [@playlist, @playlist_comment], remote: true do |f| %>
-       <%= f.text_area :comment, class: "form-control col-xs-10" %><br />
-       <div class="comment-btn"><%= f.submit "Send", class:"btn btn-secondary btn-cm"  %></div>
-      <% end %>
+       </tbody>
+      </table>
+       <h4 class="comment">comments</h4>
+        <div class="table" id="comments_box">
+          <%= render 'playlist_comments/comments', playlist_comments: @playlist_comments %>
+        </div>
+        <%= form_with model: [@playlist, @playlist_comment], remote: true do |f| %>
+         <%= f.text_area :comment, class: "form-control col-xs-10" %><br />
+         <div class="comment-btn"><%= f.submit "Send", class:"btn btn-secondary btn-cm"  %></div>
+        <% end %>
     </div>
   </div>
   <%= render "layouts/fotter" %>

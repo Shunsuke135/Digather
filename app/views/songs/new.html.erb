@@ -1,15 +1,17 @@
 <div class="playlist-body">
-<div class="container">
-  <div class="row">
-    <div class="mx-auto">
-<!--      <%# if @song.errors.any? %>-->
-<!--        <h3><%#= @song.errors.count %>prohibited this obj from being saved:</h3>-->
-<!--          <ul>-->
-<!--            <%# @song.errors.full_messages.each do |message| %>-->
-<!--              <li><%#= message %></li>-->
-<!--            <%# end %>-->
-<!--          </ul>-->
-<!--      <%# end %>-->
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto">
+        <div class="error">
+          <% if @song.errors.any? %>
+            <h3><%= @song.errors.count %>prohibited this obj from being saved:</h3>
+              <ul>
+                <% @song.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+          <% end %>
+        </div>
 
       <h1 class="user-info-edit">Add tune</h1>
 
@@ -25,8 +27,8 @@
         <p class="user-edit-btn"><%= f.submit "New add", class:"btn btn-success btn-lg" %></p><br>
       <% end %>
 
+      </div>
     </div>
-  </div>
   <%= render "layouts/fotter" %>
-</div>
+  </div>
 </div>

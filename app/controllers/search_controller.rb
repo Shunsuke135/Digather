@@ -12,7 +12,7 @@ class SearchController < ApplicationController
       # if  params[:direction] == "keyword"
           @playlists = Playlist.where('name LIKE ?', "%#{params[:q]}%")
     end
-    # end
+      # end
   end
 
 end

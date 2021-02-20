@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+ 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -8,7 +7,6 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_playlists, through: :favorites, source: :playlist
   has_many :playlist_comments, dependent: :destroy
-  # has_many :songs, dependent: :destroy
   attachment :profile_image
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -16,8 +14,8 @@ class User < ApplicationRecord
   has_many :followings, through: :follower, source: :followed
   has_many :followers, through: :followed, source: :follower
 
-  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 50}
+  validates :name, length: {maximum: 15, minimum: 2}, uniqueness: true
+  validates :introduction, length: {maximum: 40}
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
