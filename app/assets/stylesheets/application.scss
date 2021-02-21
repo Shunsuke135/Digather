@@ -19,7 +19,7 @@
  background-repeat: no-repeat;
  background-size: cover;
  background-position: center center;
- background-image: url("record.jpg");
+ background-image: image-url("record.jpg");
  width:100%;
  min-height:100vh;
 
@@ -73,10 +73,6 @@
 .playlist-edit-footer{
   margin-top: 150px;
 }
-
-// .notice{
-//   color: #00ff00;
-// }
 
 .error{
   text-align: center;
