@@ -1,12 +1,17 @@
 class SearchController < ApplicationController
 
   def search
-    @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').distinct.reorder(favorites_count: :desc)
+
+    # @users = User.page(params[:page]).reverse_order
+
+    @playlist_ranking = Playlist.left_outer_joins(:favorites).
+                          group(:id).select('playlists.*, COUNT(1) AS favorites_count').
+                          order(favorites_count: :desc).page(params[:page])
     @playlist = Playlist.new
 
     if params[:genre] == "user"
       # if params[:direction] == "keyword"    #部分一致だけなので選択欄不要
-         @users = User.where('name LIKE ?', "%#{params[:q]}%")
+         @users = User.where('name LIKE ?', "%#{params[:q]}%").page(params[:page]).reverse_order
       # end
 
     elsif params[:genre] == "playlist"
