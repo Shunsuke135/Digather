@@ -29,9 +29,12 @@ HeadsやHipHopに興味ある人！
 ## 機能一覧
 <https://docs.google.com/spreadsheets/d/1DL7cZYuRps-moRmhM6mOWzLNhIOL2jGDQvKjGCNTA24/edit#gid=0>
 
-## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：Cloud9
+## 実行環境
+- OS：Amazon Linux release 2 (Karoo)
+- 言語
+  - JavaScript
+  - Ruby 2.6.3
+- DB
+- RDS(MySQL Community)
+  - MySQL 10.2.10
+- フレームワーク：Ruby on Rails 5.2.4.4

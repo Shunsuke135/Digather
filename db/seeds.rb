@@ -9,7 +9,7 @@
 Genre.create!(
   [
     {
-       name: "Novice",
+       name: "Novice",    #プレイリストの対象者の仕分け
     },
     {
        name: "Standard",

@@ -10,65 +10,11 @@
    <div class="col-md-8 offset-md-1">
 
     <% if params[:genre] == "user" %>
-     <p>
-       <% if user_signed_in? %>
-        <%= render 'layouts/searchform' %>
-       <% end %>
-     </p>
-      <h1 class="main-font">Users</h1>
-       <table class="table">
-        <thead>
-         <th></th>
-         <th class="main-sub-font">Name</th>
-         <th></th>
-         <th class="main-sub-font">Relationships</th>
-         <th></th>
-         <th></th>
-        </thead>
-        <tbody>
-        <% @users.each do |user| %>
-        <tr>
-          <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %></td>
-          <td><%= user.name %>
-          <td><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
-          <td><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
-          <td><%= render 'relationships/follow', user: user %></td>
-          <td class="link-show"><%= link_to "Show", user_path(user.id) %></td>
-        </tr>
-        <% end %>
-
+     <%= render 'users/users', users: @users %>
     <% elsif params[:genre] == "playlist" %>
-     <p>
-       <% if user_signed_in? %>
-             <%= render 'layouts/searchform' %>
-       <% end %>
-     </p>
-      <h1 class="main-playlist-font">Playlist</h1>
-       <table class="table">
-        <thead>
-         <th></th>
-         <th class="main-sub-playlist-font">Playlist Name</th>
-         <th class="main-sub-playlist-font">Information</th>
-         <th class="main-sub-playlist-font">Reaction</th>
-         <th></th>
-        </thead>
-        <tbody>
-        <% @playlists.each do |playlist| %>
-         <tr>
-           <td>
-            <%= attachment_image_tag playlist.user, :profile_image, :fill, 40, 40, format:'jpeg', fallback: "no_image.jpg" %>
-           </td>
-           <td><%= link_to playlist.name, playlist_path(playlist.id) %></td>
-           <td><%= playlist.information %></td>
-
-           <td><%= render 'favorites/favorite', playlist: playlist %></td>
-
-           <td><i class="far fa-comment"></i>: <%= playlist.playlist_comments.count %></td>
-         </tr>
-        <% end %>
+     <%= render 'playlists/playlists', playlist_ranking: @playlist_ranking %>
     <% end %>
-        </tbody>
-       </table>
+       
    </div>
   </div>
  <%= render "layouts/fotter" %>

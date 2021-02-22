@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @playlists = @user.playlists
     @playlist = Playlist.new
   end
-  
+
   def index
-    @users = User.all
+    @users = User.page(params[:page]).reverse_order
     @playlist = Playlist.new
     @user = current_user
   end
@@ -26,10 +26,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
-  def withdrawal
-    @user = current_user
-  end
 
   def destroy
     user = User.find(params[:id])
@@ -37,7 +33,6 @@ class UsersController < ApplicationController
     flash[:success] = "アカウントを削除しました"
     redirect_to root_path
   end
-
 
   private
   def user_params

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(resource)    #サインイン後はuser/show画面に遷移
     user_path(current_user)
   end
 

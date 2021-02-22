@@ -1,0 +1,39 @@
+<div class="search-position">
+     <% if user_signed_in? %>
+      <%= render 'layouts/searchform' %>
+     <% end %>
+    </div>
+
+    <h1 class="main-playlist-font">Playlists</h1>
+     <table class="table">
+      <thead>
+       <th></th>
+       <th class="main-sub-playlist-font">Playlist Name</th>
+       <th class="main-sub-playlist-font">Information</th>
+       <th class="main-sub-playlist-font">Reaction</th>
+       <th></th>
+      </thead>
+      <tbody>
+       <% @playlist_ranking.each do |playlist| %>
+       <tr>
+        <td>
+          <%= attachment_image_tag playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %>
+         </td>
+
+         <td>
+          <%= link_to playlist.name, playlist_path(playlist.id) %>
+          </td>
+         <td><%= playlist.information %></td>
+
+         <td>
+          <div id="playlists_<%= playlist.id %>">
+           <%= render 'favorites/favorite', playlist: playlist %>
+          </div>
+         </td>
+
+        <td><i class="far fa-comment"></i>: <%= playlist.playlist_comments.count %></td>
+       </tr>
+       <% end %>
+       <%#= paginate @playlist_ranking %>
+      </tbody>
+    </table>

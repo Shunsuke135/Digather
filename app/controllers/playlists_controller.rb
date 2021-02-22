@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
-    @playlists = Playlist.find_by(params[:genre_id])
+    @playlists = Playlist.find_by(params[:genre_id])    #db/seeds.rbでジャンル作成済み
   end
 
   def create
