@@ -29,7 +29,7 @@
          </div>
         </td>
 
-        <td><i class="far fa-comment"></i>:<%= @playlist.playlist_comments.count %></td>
+        <td id="count"><i class="far fa-comment"></i>:<%= @comment_count %></td>
 
         <td>
          <% if @playlist.user == current_user %>

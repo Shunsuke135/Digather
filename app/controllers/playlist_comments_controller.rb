@@ -8,12 +8,14 @@ class PlaylistCommentsController < ApplicationController
       @comment = current_user.playlist_comments.new(comment_params)
       @comment.playlist_id = @playlist.id
       @comment.save
+      @comment_count = @playlist.playlist_comments.count
     end
 
     def destroy
       @playlist = Playlist.find(params[:id])
       comment = PlaylistComment.find(params[:playlist_id])
       comment.destroy
+      @comment_count = @playlist.playlist_comments.count
     end
 
     private
