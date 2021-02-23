@@ -13,19 +13,21 @@ class PlaylistsController < ApplicationController
     if @playlist.save
      redirect_to playlist_path(@playlist.id), notice: "You have created playlist successfully."
     else
-     @playlist_ranking = Playlist.left_outer_joins(:favorites).  #外部結合をしている(SQLの文なので、ターミナルを見ると理解しやすい)
-                          group(:id).select('playlists.*, COUNT(1) AS favorites_count').    #groupで一つにまとめ、countでいいねの数だけを数えている
-                          order(favorites_count: :desc).page(params[:page])   #並び替えの指定をしている（descなので多い順）
-     # @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').order(favorites_count: :desc).page(params[:page])
+    # @playlist_ranking = Playlist.left_outer_joins(:favorites).  #外部結合をしている(SQLの文なので、ターミナルを見ると理解しやすい)
+                          # group(:id).select('playlists.*, COUNT(1) AS favorites_count').    #groupで一つにまとめ、countでいいねの数だけを数えている
+                          # order(favorites_count: :desc).page(params[:page])   #並び替えの指定をしている（descなので多い順）
+      @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').order(favorites_count: :desc).page(params[:page])
      @playlists = Playlist.all
      render :new
     end
   end
 
   def index
-    @playlist_ranking = Playlist.left_outer_joins(:favorites).
-                          group(:id).select('playlists.*, COUNT(1) AS favorites_count').
-                          order(favorites_count: :desc).page(params[:page])
+    @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').order(favorites_count: :desc).page(params[:page])
+
+    # @playlist_ranking = Playlist.left_outer_joins(:favorites).
+                          # group(:id).select('playlists.*, COUNT(1) AS favorites_count').
+                          # order(favorites_count: :desc).page(params[:page])
   end
 
   def show

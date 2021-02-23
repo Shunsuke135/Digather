@@ -5,7 +5,9 @@
 .playlist-body{
   width:100%;                                            /* 横幅のサイズを指定    */
   min-height:100vh;
-  background-color: #f8f8ff;
+  background-image: image-url("paisley.jpg");
+  background-color:rgba(248,249,250,0.85);
+  background-blend-mode:lighten;
 }
 
 * {
