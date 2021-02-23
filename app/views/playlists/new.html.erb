@@ -12,22 +12,7 @@
             </ul>
         <% end %>
       </div>
-
       <h1 class="user-info-edit">New playlist</h1>
-
-      <%= form_with model: @playlist, local:true do |f| %>
-        <p class="user-edit-field">Playlist Name</p>
-        <p class="user-edit-field"><%= f.text_field :name %></p>
-        <p class="user-edit-field">Information</p>
-        <p class="user-edit-field"><%= f.text_area :information %></p><br>
-        <p class="user-edit-field">Genre</p>
-        <p class="user-edit-field"><%= f.collection_radio_buttons :genre_id, Genre.all, :id, :name %></p><br>
-
-
-
-        <p class="user-edit-btn"><%= f.submit "Create Playlist", class:"btn btn-success btn-lg" %></p><br>
-      <% end %>
-
     </div>
   </div>
   <%= render "layouts/fotter" %>
