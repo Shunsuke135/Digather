@@ -13,12 +13,12 @@ class RelationshipsController < ApplicationController
   end
 
   def followings
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).reverse_order
     render 'users/index'
   end
 
   def followers
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).reverse_order
     render 'users/index'
   end
 
