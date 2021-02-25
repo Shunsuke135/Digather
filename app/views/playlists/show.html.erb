@@ -12,8 +12,9 @@
 
     <div class="col-md-8 offset-md-1">
      <h1 class="main-user-show-font">Playlist deets</h1>
+     <div  class="tbl-r04">
       <table class="table">
-       <th>
+       <th class="xxx">
         <td class="image-position">
          <%= link_to (@playlist.user) do %>
          <%= attachment_image_tag @playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %><br>
@@ -39,28 +40,31 @@
         </td>
         </th>
       </table>
-      <table>
-       <thead>
+      </div>
+      <div  class="tbl-r04">
+      <table class="table">
         <tr>
          <th class="songs-text">Artist</th>
          <th class="songs-text">Tune</th>
          <th class="songs-text">Deets</th>
          <th class="songs-text"><%= link_to "New Add", new_playlist_song_path(@playlist.id) %></th>
+         <th class="xxx"></th>
+         <th class="xxx"></th>
         </tr>
-       </thead>
        <tbody>
         <% @songs.each do |song| %>
          <tr>
           <td class="song-posts"><%= song.artist %></td>
           <td><%= song.tune %></td>
           <td><%= song.detail %></td>
-          <td></td>
+          <td class="xxx"></td>
           <td><%= link_to "Destroy", playlist_song_path(song.playlist_id, song.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
-          <td></td>
+          <td class="xxx"></td>
          </tr>
         <% end %>
        </tbody>
       </table>
+      </div>
        <h4 class="comment">comments</h4>
         <div class="table" id="comments_box">
           <%= render 'playlist_comments/comments', playlist_comments: @playlist_comments %>

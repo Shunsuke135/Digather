@@ -3,29 +3,27 @@
      <%= render 'layouts/searchform' %>
     <% end %>
    </div>
-
    <h1 class="main-font">Posse</h1>
+   <div class="tbl-r04">
     <table class="table">
-     <thead>
-      <th></th>
-      <th class="main-sub-font">Name</th>
-      <th></th>
-      <th class="main-sub-font">Relationships</th>
-      <th></th>
-      <th></th>
-     </thead>
-
-      <tbody>
-       <% users.each do |user| %>
-        <tr>
-          <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %></td>
-          <td><%= user.name %>
-          <td><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
-          <td><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
-          <td><%= render 'relationships/follow', user: user %></td>
-          <td class="link-show"><%= link_to "Show", user_path(user.id) %></td>
-        </tr>
-       <% end %>
-       <%= paginate users %>
-      </tbody>
-    </table>
+     <tr class="thead">
+       <th class="xxx"></th>
+       <th class="main-sub-font">Name</th>
+       <th class="xxx"></th>
+       <th class="main-sub-font">Relationships</th>
+       <th class="xxx"></th>
+       <th class="xxx"</th>
+     </tr>
+     <tr>
+      <% users.each do |user| %>
+       <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %></td>
+       <td><%= user.name %></td>
+       <td><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
+       <td><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>
+       <td><%= render 'relationships/follow', user: user %></td>
+       <td class="link-show"><%= link_to "Show", user_path(user.id) %></td>
+     </tr>
+     <% end %>
+     <%= paginate users %>
+   </table>
+  </div>

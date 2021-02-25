@@ -1,32 +1,29 @@
 <div class="playlist-body">
- <div class="container">
+<div class="container">
   <div class="row">
-   <div class="mx-auto">
-
-    <div class="error">
-     <% if @user.errors.any? %>
-      <h3><%= @user.errors.count %>prohibited this obj from being saved:</h3>
-       <ul>
-        <% @user.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-        <% end %>
-       </ul>
-      <% end %>
-     </div>
-
-    <h1 class="user-info-edit">Candy info</h1>
-     <%= form_with model: @user, local:true do |f| %>
-      <p class="user-edit-field">Name</p>
-      <p class="user-edit-field"><%= f.text_field :name %></p>
+    <div class="mx-auto">
+      <div class="error">
+         <% if @user.errors.any? %>
+         <h3><%= @user.errors.count %>prohibited this obj from being saved:</h3>
+          <ul>
+           <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+           <% end %>
+          </ul>
+         <% end %>
+      </div>
+      <h1 class="user-info-edit">Candy info</h1>
+      <%= form_with model: @user, local:true do |f| %>
+      <div class="user-edit-field">Name</div>
+      <div class="user-edit-field"><%= f.text_field :name %></div>
       <p class="user-edit-field">Image</p>
       <p class="user-edit-field"><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
       <p class="user-edit-field">Introduction</p>
       <p class="user-edit-field"><%= f.text_area :introduction, size: "30x5" %></p><br>
       <p class="user-edit-btn"><%= f.submit "Update User", class:"btn btn-secondary btn-lg" %></p><br>
      <% end %>
-
-   </div>
+    </div>
   </div>
- <%= render "layouts/fotter" %>
- </div>
+  <%= render "layouts/fotter" %>
+</div>
 </div>

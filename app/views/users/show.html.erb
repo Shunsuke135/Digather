@@ -13,18 +13,19 @@
 
    <div class="col-md-8 offset-md-1">
     <h1 class="main-user-show-font">Playlists</h1>
+    <div class="tbl-r04">
     <table class="table">
      <thead>
-      <th></th>
+      <th class="xxx"></th>
       <th class="main-sub-font">Playlist Name</th>
       <th class="main-sub-font">Information</th>
-      <th></th>
-      <th></th>
+      <th class="xxx"></th>
+      <th class="xxx"></th>
      </thead>
      <tbody>
       <% @playlists.each do |playlist| %>
        <tr>
-         <td>
+         <td class="xxxx">
           <%= attachment_image_tag playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %>
          </td>
          <td><%= playlist.name %></td>
@@ -37,6 +38,7 @@
       <% end %>
      </tbody>
     </table>
+    </div>
    </div>
   </div>
  <%= render "layouts/fotter" %>

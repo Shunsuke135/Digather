@@ -3,10 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .playlist-body{
-  width:100%;                                            /* 横幅のサイズを指定    */
-  min-height:100vh;
-  background-image: image-url("paisley.jpg");
-  background-color:rgba(248,249,250,0.85);
+  max-width: 100vw;                                            /* 横幅のサイズを指定    */
+  min-height:100vh;                                            /* 縦幅のサイズを指定    */
+  background-image: image-url("paisley.jpg");                  /* URLの前にimageを付けないと本番環境で表示されない    */
+  // background-attachment: fixed;
+  // background-size: cover;
+  background-color:rgba(248,249,250,0.85);                     /* 透明度の指定    */
   background-blend-mode:lighten;
 }
 
@@ -20,6 +22,7 @@
   width: 170px;
   text-align: center;
   font-family: cursive;
+  white-space: pre;
 }
 
 .song-posts{
@@ -41,7 +44,7 @@
 
 .main-playlist-font{
   margin-top: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   font-size: 50px;
   text-align: center;
   font-family: cursive;
@@ -61,3 +64,93 @@
 .image-position{
   text-align: center;
 }
+
+@media screen and (max-width: 640px) {
+  .last td:last-child {
+    border-bottom: solid 1px #ccc;
+    width: 100%;
+  }
+  .tbl-r04 {
+    width: 100%;
+  }
+  .tbl-r04 th,
+  .tbl-r04 td {
+　　border-bottom: none;
+    display: block;
+    width: 100%;
+  }
+}
+p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 60px auto 40px;
+}
+th {
+  // background: #e9727e;
+  border-top: solid 1px gray;
+  // border-bottom: solid 1px gray;
+  color: black;
+  padding: 10px;
+}
+td {
+  border-top: solid 1px gray;
+  padding: 10px;
+}
+
+
+
+//PCのデフォルトスタイルは割愛します
+@media screen and (max-width: 480px) {
+  .tbl-r04 {
+    // margin-left: 40px;
+    text-align: center;
+  }
+  .tbl-r04 thead {
+    border: none!important;
+  }
+  .tbl-r04 tr,
+  .tbl-r04 td{
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+  .xxxx{
+    border: none!important;
+  }
+  .tbl-r04 td:first-child:before {
+    text-align: center;
+    // margin-top: 30px;
+    margin-bottom: 15px;
+    // content: "Name Information Reaction";
+    // background: #e9727e;
+    box-sizing: border-box;
+    color: black;
+    font-weight: bold;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    top: -41px;
+    left: -0.2%;
+    display: block;
+    width: 100.5%;
+  }
+  .tbl-r04 tr {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .xxx {
+    padding: 0!important;
+    border: none!important;
+  }
+  .user-info-edit{
+    font-size: 53px!important;
+  }
+  .user-edit-field{
+    font-size: 22px!important;
+  }
+  .about-font{
+    font-size: 70px!important;
+  }
+}
+
