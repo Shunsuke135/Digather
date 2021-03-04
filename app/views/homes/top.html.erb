@@ -10,10 +10,13 @@
       <p class="top"><i class="fas fa-compact-disc"></i>Dig + <i class="fas fa-compress-arrows-alt"></i>gather = Digather</p>
      </div>
     <div class = "move-login">
-     <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in log-in-btn" %>
+     <%= link_to "Log in", new_user_session_path, class: "btn btn-success btn-sm btn-block mb-3 sign_in log-in-btn" %>
     </div><br>
    <div class = "move-signup">
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up log-in-btn" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in log-in-btn" %>
+   </div><br>
+   <div class = "move-signup">
+    <%= link_to "Guest log in",homes_guest_sign_in_path, method: :post, class: "btn btn-warning btn-sm btn-block sign_up log-in-btn" %>
    </div>
   </div>
  </div>
