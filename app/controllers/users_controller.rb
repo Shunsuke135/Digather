@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).reverse_order
+    @users = User.page(params[:page]).reverse_order #kaminariの記述
     @playlist = Playlist.new
     @user = current_user
   end
@@ -25,13 +25,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    user = User.find(params[:id])
-    user.destroy
-    flash[:success] = "アカウントを削除しました"
-    redirect_to root_path
   end
 
   private

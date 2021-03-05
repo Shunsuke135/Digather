@@ -23,8 +23,6 @@ class PlaylistsController < ApplicationController
   end
 
   def index
-    # @playlist_ranking = Playlist.left_outer_joins(:favorites).group('playlists.id').select('playlists.id, playlists.user_id, playlists.name, playlists.information, COUNT(favorites.id) AS favorites_count').order(favorites_count: :desc).page(params[:page])
-
     @playlist_ranking = Playlist.left_outer_joins(:favorites).
                           group(:id).select('playlists.*, COUNT(favorites.id) AS favorites_count').
                           order(favorites_count: :desc).page(params[:page])

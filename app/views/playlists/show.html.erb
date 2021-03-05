@@ -14,7 +14,7 @@
      <h1 class="main-user-show-font">Playlist deets</h1>
      <div  class="tbl-r04">
       <table class="table">
-       <th class="xxx">
+       <th class="borderline">
         <td class="image-position">
          <%= link_to (@playlist.user) do %>
          <%= attachment_image_tag @playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %><br>
@@ -48,8 +48,8 @@
          <th class="songs-text">Tune</th>
          <th class="songs-text">Deets</th>
          <th class="songs-text"><%= link_to "New Add", new_playlist_song_path(@playlist.id) %></th>
-         <th class="xxx"></th>
-         <th class="xxx"></th>
+         <th class="borderline"></th>
+         <th class="borderline"></th>
         </tr>
        <tbody>
         <% @songs.each do |song| %>
@@ -57,9 +57,9 @@
           <td class="song-posts"><%= song.artist %></td>
           <td><%= song.tune %></td>
           <td><%= song.detail %></td>
-          <td class="xxx"></td>
+          <td class="borderline"></td>
           <td><%= link_to "Destroy", playlist_song_path(song.playlist_id, song.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %></td>
-          <td class="xxx"></td>
+          <td class="borderline"></td>
          </tr>
         <% end %>
        </tbody>

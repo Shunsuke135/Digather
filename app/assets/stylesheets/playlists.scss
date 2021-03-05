@@ -2,20 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.playlist-body{
-  max-width: 100vw;                                            /* 横幅のサイズを指定    */
-  min-height:100vh;                                            /* 縦幅のサイズを指定    */
-  background-image: image-url("paisley.jpg");                  /* URLの前にimageを付けないと本番環境で表示されない    */
-  // background-attachment: fixed;
-  // background-size: cover;
-  background-color:rgba(248,249,250,0.85);                     /* 透明度の指定    */
-  background-blend-mode:lighten;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.playlist-body{
+  max-width: 100vw;                                            /* 横幅のサイズを指定    */
+  min-height:100vh;                                            /* 縦幅のサイズを指定    */
+  background-image: image-url("paisley.jpg");                  /* URLの前にimageを付けないと本番環境で表示されない    */
+  background-color:rgba(248,249,250,0.85);                     /* 透明度の指定    */
+  background-blend-mode:lighten;
 }
 
 .songs-text{
@@ -27,11 +25,6 @@
 
 .song-posts{
   height: 35px;
-}
-
-.search{
-  display: flex;
-  justify-content: center;
 }
 
 .main-playlist-font{
@@ -65,6 +58,7 @@
   text-align: center;
 }
 
+// メディアクエリを使ったレスポンシブ対応の記述
 @media screen and (max-width: 640px) {
   .last td:last-child {
     border-bottom: solid 1px #ccc;
@@ -87,9 +81,7 @@ p {
   margin: 60px auto 40px;
 }
 th {
-  // background: #e9727e;
   border-top: solid 1px gray;
-  // border-bottom: solid 1px gray;
   color: black;
   padding: 10px;
 }
@@ -100,10 +92,9 @@ td {
 
 
 
-//PCのデフォルトスタイルは割愛します
+// スマホサイズで切り替わる
 @media screen and (max-width: 480px) {
   .tbl-r04 {
-    // margin-left: 40px;
     text-align: center;
   }
   .tbl-r04 thead {
@@ -115,15 +106,12 @@ td {
     width: 100%;
     position: relative;
   }
-  .xxxx{
+  .bordernone{
     border: none!important;
   }
   .tbl-r04 td:first-child:before {
     text-align: center;
-    // margin-top: 30px;
     margin-bottom: 15px;
-    // content: "Name Information Reaction";
-    // background: #e9727e;
     box-sizing: border-box;
     color: black;
     font-weight: bold;
@@ -139,7 +127,7 @@ td {
     text-align: center;
     margin-bottom: 40px;
   }
-  .xxx {
+  .borderline {
     padding: 0!important;
     border: none!important;
   }
@@ -153,4 +141,3 @@ td {
     font-size: 70px!important;
   }
 }
-

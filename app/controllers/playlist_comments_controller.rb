@@ -1,7 +1,7 @@
 class PlaylistCommentsController < ApplicationController
 
-    # before_action :authenticate_user!
-    # before_action :comment_correct_user, only: [:destroy]
+    before_action :authenticate_user!
+    before_action :comment_correct_user, only: [:destroy]
 
     def create
       @playlist = Playlist.find(params[:playlist_id])
