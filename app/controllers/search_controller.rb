@@ -13,9 +13,12 @@ class SearchController < ApplicationController
          @users = User.where('name LIKE ?', "%#{params[:q]}%").page(params[:page]).reverse_order
       # end
 
+    # elsif params[:genre] == "genre"
+    #     @playlists = Genre.where('name LIKE ?', "%#{params[:q]}%").page(params[:page]).reverse_order
+
     elsif params[:genre] == "playlist"
       # if  params[:direction] == "keyword"
-          @playlist_ranking = Playlist.where('name LIKE ?', "%#{params[:q]}%").left_outer_joins(:favorites).
+         @playlist_ranking = Playlist.where('name LIKE ?', "%#{params[:q]}%").left_outer_joins(:favorites).
                               group(:id).select('playlists.*, COUNT(favorites.id) AS favorites_count').
                               order(favorites_count: :desc).page(params[:page])
     end

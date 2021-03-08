@@ -1,0 +1,26 @@
+<div class="tbl-r04">
+    <table class="table">
+       <thead>
+        <th class="borderline"></th>
+        <th class="main-sub-font">Playlist Name</th>
+        <th class="main-sub-font">Information</th>
+        <th class="borderline"></th>
+        <th class="borderline"></th>
+       </thead>
+       <tbody>
+        <% @playlists.each do |playlist| %>
+         <tr>
+           <td class="bordernone">
+            <%= attachment_image_tag playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %>
+           </td>
+           <td><%= link_to playlist.name, playlist_path(playlist.id) %></td>
+           <td><%= playlist.information %></td>
+           <td class="link-show"><%= playlist.genre.name %></td>
+
+           <td><i class="far fa-comment"></i>: <%= playlist.playlist_comments.count %></td>
+
+         </tr>
+        <% end %>
+       </tbody>
+    </table>
+</div>

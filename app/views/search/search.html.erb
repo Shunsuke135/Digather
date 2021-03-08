@@ -11,6 +11,8 @@
 
     <% if params[:genre] == "user" %>
      <%= render 'users/users', users: @users %>
+    <%# elsif params[:genre] == "genre" %>
+     <%#= render 'users/users.show', users: @playlists %>
     <% elsif params[:genre] == "playlist" %>
      <%= render 'playlists/playlists', playlist_ranking: @playlist_ranking %>
     <% end %>
