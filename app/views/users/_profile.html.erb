@@ -10,7 +10,7 @@
         <div class="profile">Followers</div>
             <div class="profile-detail"><%= link_to user.followers.count, user_followers_path(user) %></div>
 
-        <div><%= render 'relationships/follow', user: user %></div><br>
+        <div id="follows_<%= user.id %>"><%= render 'relationships/follow', user: user %></div><br>
 
     <div>
         <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
