@@ -16,7 +16,7 @@
      </tr>
      <tr>
       <% users.each do |user| %>
-       <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %></td>
+       <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %></td>
        <td><%= user.name %></td>
        <td id="numeration"><p>following : <%= link_to user.followings.count, user_followings_path(user) %></p></td>
        <td id="numerations"><p>followers : <%= link_to user.followers.count, user_followers_path(user) %></p></td>

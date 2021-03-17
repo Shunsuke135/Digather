@@ -1,5 +1,5 @@
 <div class="profile-table">
-    <div><%= attachment_image_tag(user, :profile_image, :fill, 250, 250, fallback: "no_image.jpg") %></div>
+    <div><%= attachment_image_tag(user, :profile_image, :fill, 250, 250, fallback: "no_image.jpg", size:'250x250') %></div>
 
         <div class="profile">Name</div>
             <div class="profile-detail"><%= user.name %></div>

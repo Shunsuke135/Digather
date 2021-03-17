@@ -17,7 +17,7 @@
        <th class="borderline">
         <td class="image-position">
          <%= link_to (@playlist.user) do %>
-         <%= attachment_image_tag @playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg" %><br>
+         <%= attachment_image_tag @playlist.user, :profile_image, :fill, 50, 50, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %><br>
          <%= @playlist.user.name %>
          <% end %>
         </td>
