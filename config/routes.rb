@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :playlists do
    resource :favorites, only: [:create, :destroy]
    resources :playlist_comments, only: [:create, :destroy]
-  resources :songs, only: [:new, :create, :destroy]
- end
+   resources :songs, only: [:new, :create, :destroy]
+  end
 
  get '/search' => 'search#search'
 
