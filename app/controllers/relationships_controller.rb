@@ -4,12 +4,12 @@ class RelationshipsController < ApplicationController
 
   def create
     current_user.follow(@user)
-    # redirect_back fallback_location: root_url
+    # redirect_back fallback_location: root_url #非同期通信実装の為にコメントアウト
   end
 
   def destroy
     current_user.unfollow(@user)
-    # redirect_back fallback_location: root_url
+    # redirect_back fallback_location: root_url #非同期通信実装の為にコメントアウト
   end
 
   def followings
